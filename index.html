@@ -14,7 +14,7 @@
 	<script id="example-template" type="text/x-handlebars-template">
 		<div>
 			<span data-bind="text: identifier"></span>
-			<input type="range" data-bind="min: min, max: max, value: circumference">
+			<input type="range" data-bind="disable: locked,min: min, max: max, value: circumference">
 			<span data-bind="text: circumference"></span>
 			<span data-bind="text: units"></span>
 			-
@@ -27,7 +27,8 @@
 
 <body>
 <div id="testbar"><a class="testbar" href="test/test.html" target="_blank">Run the Tests!</a></div>
-<span id="example" data-bind="template: { name: 'example-template', foreach: exampleArray }"></span>
+<span id="example" data-bind="template: { name: 'example-template', foreach: buttonArray }"></span>
+<button id="lockButton" data-bind="text: lockText, click: lockClicked"></button>
 </body>
 
 <script>
