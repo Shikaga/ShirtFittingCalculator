@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="lib/mustache.js"></script>
 	<script type="text/javascript" src="lib/knockout.js"></script>
 	<script type="text/javascript" src="lib/ko.mustache.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 
 	<script>
 		ko.setTemplateEngine(new ko.mustacheTemplateEngine());
@@ -12,7 +13,13 @@
 
 	<script id="example-template" type="text/x-handlebars-template">
 		<div>
-				<span data-bind="text: value">{{name}}</span>
+			<span data-bind="text: identifier"></span>
+			<input type="range" data-bind="min: min, max: max, value: circumference">
+			<span data-bind="text: circumference"></span>
+			<span data-bind="text: units"></span>
+			-
+			<span data-bind="text: width"></span>
+			<span data-bind="text: units"></span>
 		</div>
 	</script>
 
@@ -24,13 +31,7 @@
 </body>
 
 <script>
-	function exampleClass() {
-		this.exampleArray = ko.observableArray([{value: 'lol'}, {value: 'example'}]);
-		ko.applyBindingsToNode(document.getElementById('example'), null, this);
-	}
-	var x = new exampleClass();
-
+	var shirtFittingCalculator = new ShirtFittingCalculator();
 </script>
-
 
 </html>
