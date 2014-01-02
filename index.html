@@ -15,10 +15,10 @@
 		<div>
 			<span data-bind="text: identifier"></span>
 			<input type="range" data-bind="disable: locked,min: min, max: max, value: circumference">
-			<span data-bind="text: circumference"></span>
+			<span data-bind="text: calcCircumference"></span>
 			<span data-bind="text: units"></span>
 			-
-			<span data-bind="text: width"></span>
+			<span data-bind="text: calcWidth"></span>
 			<span data-bind="text: units"></span>
 		</div>
 	</script>
@@ -26,7 +26,8 @@
 </head>
 
 <body>
-<div id="testbar"><a class="testbar" href="test/test.html" target="_blank">Run the Tests!</a></div>
+<button id="imperialButton" data-bind="disable: !imperialButtonEnabled(), click: imperialClicked">Inches</button>
+<button id="metricButton" data-bind="disable: !metricButtonEnabled(), click: metricClicked">Centimeters</button>
 <span id="example" data-bind="template: { name: 'example-template', foreach: buttonArray }"></span>
 <button id="lockButton" data-bind="text: lockText, click: lockClicked"></button>
 </body>
